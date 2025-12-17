@@ -4,13 +4,13 @@ import { Reveal } from '../UI/Reveal';
 import { useLanguage } from '../../App';
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1920"
+  "img/carrosel-01.jpg",
+  "img/carrosel-02.jpg",
+  "img/carrosel-03.jpg",
+  "img/carrosel-04.jpg",
+  "img/carrosel-05.jpg",
+  "img/carrosel-06.jpg",
+  "img/carrosel-07.jpg"
 ];
 
 export const Hero: React.FC = () => {
@@ -71,13 +71,13 @@ export const Hero: React.FC = () => {
       const angle = startAngle + (step * index);
       const radian = (angle * Math.PI) / 180;
       
-      const radius = isTablet ? 340 : 480;
+      const radius = isTablet ? 340 : 380;
       const x = Math.cos(radian) * radius;
       const y = Math.sin(radian) * radius;
 
       return {
         // Posicionamento que faz as fotos circularem o texto alinhado à direita
-        transform: `translate(${-x + (isTablet ? 120 : 180)}px, ${y}px)`,
+        transform: `translate(${-x + (isTablet ? 120 : 120)}px, ${y}px)`,
         transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)'
       };
     }
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
       <div className="relative z-10 container mx-auto px-6 md:px-12 h-full flex items-center justify-end">
         
         {/* Bloco de Texto (Conteúdo a ser contornado) */}
-        <div className={`flex flex-col ${isMobile ? 'items-center pt-32 text-center' : 'items-end text-right'} max-w-2xl lg:max-w-4xl relative z-20`}>
+        <div className={`flex flex-col ${isMobile ? 'items-center pt-32 text-center' : 'items-end text-right left-[95px]'} max-w-2xl lg:max-w-4xl relative z-20`}>
           <Reveal direction="down">
             <div className={`flex items-center gap-4 mb-6 ${isMobile ? 'justify-center' : 'justify-end'}`}>
               <p className="text-xs md:text-lg font-bold uppercase tracking-[0.4em] text-pousada-gold drop-shadow-sm">
@@ -126,14 +126,14 @@ export const Hero: React.FC = () => {
           </Reveal>
           
           <Reveal>
-            <h1 className={`font-serif font-bold leading-tight mb-8 drop-shadow-2xl ${isTablet ? 'text-5xl lg:text-7xl' : 'text-6xl md:text-8xl lg:text-9xl'}`}>
-              {t.hero.title.split(' ')[0]} <br/>
-              <span className="text-pousada-gold italic font-light">{t.hero.title.split(' ').slice(1).join(' ')}</span>
+            <h1 className={`font-serif font-bold leading-tight mb-8 drop-shadow-2xl ${isTablet ? 'text-5xl lg:text-7xl' : 'text-6xl md:text-8xl lg:text-7xl'}`}>
+              <span className="text-white">{t.hero.title.split(' ')[0]}</span> <br/>
+              <span className="text-pousada-gold italic font-light ">{t.hero.title.split(' ').slice(1).join(' ')}</span>
             </h1>
           </Reveal>
 
           <Reveal delay={200}>
-            <p className="text-lg md:text-2xl text-white/95 mb-10 max-w-xl leading-relaxed drop-shadow-md font-medium">
+            <p className="text-lg md:text-2x1 text-white/95 mb-10 max-w-xl leading-relaxed drop-shadow-md font-medium">
               {t.hero.subtitle} — Onde o luxo encontra a preservação ambiental no paraíso de João Fernandes.
             </p>
           </Reveal>
@@ -162,7 +162,7 @@ export const Hero: React.FC = () => {
         <div className={`absolute z-10 flex items-center justify-center pointer-events-none ${
           isMobile 
             ? 'top-0 left-0 w-full h-[180px]' 
-            : 'right-0 top-0 h-full w-[800px]'
+            : 'right-0 top-0 h-full w-[600px]'
         }`}>
           <div className="relative w-full h-full flex items-center justify-center">
             {HERO_IMAGES.map((img, index) => {

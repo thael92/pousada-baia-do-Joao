@@ -82,9 +82,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenPage, currentView }) => {
           className="flex flex-col items-center cursor-pointer group select-none transition-transform hover:scale-105"
         >
           {/* Use o texto caso a imagem não carregue, mas priorize a IMG */}
-          <div className="relative h-16 md:h-20 lg:h-24 flex items-center justify-center">
+          <div className="relative h-16 md:h-20 lg:h-[150px] flex items-center justify-center">
              <img 
-               src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300&h=120&text=BaiaDoJoao" 
+               src="img/logo.png" 
                alt="Pousada Baía do João Logo" 
                className="h-full w-auto object-contain"
                onError={(e) => {

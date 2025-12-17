@@ -37,11 +37,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin, onNavigate }) => {
           <div>
             {/* Logo Image in Footer */}
             <div className="mb-6 h-16 w-auto flex items-start">
-               <img 
-                 src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=300&h=120&text=BaiaDoJoao" 
+               <a href=""><img 
+                 src="img/logo.png" 
                  alt="Pousada Baía do João Logo" 
-                 className="h-full object-contain brightness-0 invert opacity-90"
-               />
+                 className="relative bottom-[10px] h-[95px] object-contain brightness-0 invert opacity-90"
+               /></a>
             </div>
             
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
