@@ -1,36 +1,36 @@
-import { 
-     Coffee, 
-     Waves, 
-     Clock, 
-     Utensils, 
-     Bus, 
-     Wind,
-     Sun,
-     Anchor,
-     Map,
-     History,
-     Leaf,
-     Key,
-     ConciergeBell,
-     PawPrint,
-     FileText,
-     Newspaper
+import {
+    Coffee,
+    Waves,
+    Clock,
+    Utensils,
+    Bus,
+    Wind,
+    Sun,
+    Anchor,
+    Map,
+    History,
+    Leaf,
+    Key,
+    ConciergeBell,
+    PawPrint,
+    FileText,
+    Newspaper
 } from "lucide-react";
 import { NavItem, ServiceItem, RoomItem, TourItem, TestimonialItem } from "./types";
 
 export const NAV_ITEMS: NavItem[] = [
     { label: "Home", href: "#home" },
-    { 
-      label: "A Pousada", 
-      href: "#about",
-      children: [
-        { label: "Nossa História", id: "history", icon: History },
-        { label: "Sustentabilidade", id: "sustainability", icon: Leaf },
-        { label: "Green Key", id: "greenkey", icon: Key },
-        { label: "Serviços", id: "services", icon: ConciergeBell },
-        { label: "Pet Friendly", id: "petfriendly", icon: PawPrint },
-        { label: "Políticas", id: "policies", icon: FileText },
-      ]
+    {
+        label: "A Pousada",
+        href: "#about",
+        children: [
+            { label: "Nossa História", id: "history", icon: History },
+            { label: "Sustentabilidade", id: "sustainability", icon: Leaf },
+            { label: "Green Key", id: "greenkey", icon: Key },
+            { label: "Serviços", id: "services", icon: ConciergeBell },
+            { label: "Pet Friendly", id: "petfriendly", icon: PawPrint },
+            { label: "Políticas", id: "policies", icon: FileText },
+        ]
     },
     { label: "Quartos", href: "#rooms" },
     { label: "Búzios", href: "#location" },
@@ -54,6 +54,12 @@ export const ROOMS: RoomItem[] = [
         id: 101,
         name: "Suíte Master Vista Mar",
         image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Nossa Suíte Master oferece a melhor vista para o mar, combinando luxo e conforto. Ideal para casais que buscam um momento romântico inesquecível, com uma varanda privativa perfeita para admirar o nascer do sol.",
         features: ["Varanda Privativa", "Cama King Size", "Ar-Condicionado Split", "Frigobar Retrô"],
         price: "R$ 650 diária",
         numericPrice: 650,
@@ -63,6 +69,12 @@ export const ROOMS: RoomItem[] = [
         id: 102,
         name: "Suíte Deluxe Hidro",
         image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1584622650111-993a42ebfbf4?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Relaxe em nossa Suíte Deluxe, equipada com uma espaçosa banheira de hidromassagem. A decoração sofisticada e a vista para o nosso jardim tropical garantem uma estadia relaxante.",
         features: ["Banheira de Hidromassagem", "Vista Jardim", "Smart TV 50\"", "Nespresso no Quarto"],
         price: "R$ 720 diária",
         numericPrice: 720,
@@ -72,6 +84,11 @@ export const ROOMS: RoomItem[] = [
         id: 103,
         name: "Suíte Family Garden",
         image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Espaçosa e aconchegante, a Suíte Family Garden é perfeita para quem viaja com filhos ou amigos. Possui um pátio privativo com acesso direto à nossa horta e áreas verdes.",
         features: ["Espaço para 4 Pessoas", "Pátio Privativo", "Cozinha Americana", "Rede de Descanso"],
         price: "R$ 850 diária",
         numericPrice: 850,
@@ -81,6 +98,11 @@ export const ROOMS: RoomItem[] = [
         id: 104,
         name: "Suíte Romântica Sunset",
         image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Desenhada para os apaixonados, a Suíte Sunset oferece a melhor visão do pôr do sol na baía. A decoração minimalista cria uma atmosfera de paz, perfeita para casais.",
         features: ["Melhor Vista do Pôr do Sol", "Decoração Minimalista", "Enxoval 400 fios", "Adega Climatizada"],
         price: "R$ 590 diária",
         numericPrice: 590,
@@ -90,6 +112,11 @@ export const ROOMS: RoomItem[] = [
         id: 105,
         name: "Suíte Premium Panorâmica",
         image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Com janelões de vidro do chão ao teto, esta suíte oferece uma visão ininterrupta de 180 graus da baía. O luxo de dormir e acordar cercado por vistas deslumbrantes.",
         features: ["Janelões do chão ao teto", "Vista 180 graus", "Cama Super King", "Chuveiro Duplo"],
         price: "R$ 980 diária",
         numericPrice: 980,
@@ -99,6 +126,11 @@ export const ROOMS: RoomItem[] = [
         id: 106,
         name: "Suíte Standard Aconchego",
         image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1598928506311-c55dd5878a17?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Prática e confortável, nossa Suíte Standard fica na parte inferior da pousada, próxima à recepção. Ideal para viajantes que buscam excelente custo-benefício.",
         features: ["Próximo à Recepção", "Custo-Benefício", "Ar-Condicionado", "Wi-Fi Fibra"],
         price: "R$ 390 diária",
         numericPrice: 390,
@@ -108,6 +140,11 @@ export const ROOMS: RoomItem[] = [
         id: 107,
         name: "Suíte Master Plus",
         image: "https://images.unsplash.com/photo-1591088398332-8a77d399a80c?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1591088398332-8a77d399a80c?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Mais espaço para sua comodidade. A Suíte Master Plus conta com uma pequena área de estar com um sofá-cama, além de uma vista parcial incrível do mar de Búzios.",
         features: ["Espaço Extra", "Sofá-Cama", "Mesa de Trabalho", "Vista Lateral Mar"],
         price: "R$ 520 diária",
         numericPrice: 520,
@@ -117,6 +154,11 @@ export const ROOMS: RoomItem[] = [
         id: 108,
         name: "Suíte Garden View 208",
         image: "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Uma suíte mais isolada, perfeita para quem busca privacidade. Com entrada independente, a Garden View traz o clima aconchegante de uma autêntica casa de praia.",
         features: ["Entrada Independente", "Cama Queen", "Ventilador de Teto", "Frigobar"],
         price: "R$ 450 diária",
         numericPrice: 450,
@@ -126,6 +168,11 @@ export const ROOMS: RoomItem[] = [
         id: 109,
         name: "Suíte Búzios Dream",
         image: "https://images.unsplash.com/photo-1578683010236-d716f97596d8?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1578683010236-d716f97596d8?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "Homenageando a vila de pescadores que originou a cidade, esta suíte possui decoração temática local, artesanatos exclusivos e uma espaçosa rede na varanda.",
         features: ["Temática Local", "Artesanato de Búzios", "Rede na Varanda", "Cafeteira"],
         price: "R$ 480 diária",
         numericPrice: 480,
@@ -135,6 +182,12 @@ export const ROOMS: RoomItem[] = [
         id: 110,
         name: "Suíte Presidencial Baía",
         image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800",
+        gallery: [
+            "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=1200",
+            "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200"
+        ],
+        description: "A joia da coroa da Pousada. A Suíte Presidencial conta com incríveis 120m² de área útil, além de uma exclusiva piscina privativa no deck e a melhor vista ininterrupta de Búzios.",
         features: ["120m² de Luxo", "Piscina Privativa", "Butler Service", "Vista Total Baía"],
         price: "R$ 1.800 diária",
         numericPrice: 1800,

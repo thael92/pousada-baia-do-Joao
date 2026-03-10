@@ -44,6 +44,7 @@ function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [currentView, setCurrentView] = useState<string>('home');
   const [rooms, setRooms] = useState<RoomItem[]>([]);
+  const [isSearchingAPI, setIsSearchingAPI] = useState(false);
   const [filters, setFilters] = useState<SearchFilters>({
     checkIn: '',
     checkOut: '',
@@ -70,28 +71,64 @@ function App() {
     localStorage.setItem('pousada_rooms', JSON.stringify(updatedRooms));
   };
 
-  const handleSearch = (data: Omit<SearchFilters, 'isActive'>) => {
+  const handleSearch = async (data: Omit<SearchFilters, 'isActive'>) => {
     setFilters({ ...data, isActive: true });
+
+    setIsSearchingAPI(true);
     setCurrentView('home');
-    setTimeout(() => {
-      const roomsSection = document.getElementById('rooms');
-      if (roomsSection) {
-        const headerOffset = 160;
-        const elementPosition = roomsSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.scrollY - headerOffset;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      }
-    }, 100);
+
+    try {
+      const { fetchAvailabilities, ROOM_TO_PLACE_TYPE } = await import('./services/hospedin');
+      const updatedRooms = JSON.parse(JSON.stringify(INITIAL_ROOMS));
+
+      await Promise.all(updatedRooms.map(async (room: RoomItem) => {
+        const placeTypeId = ROOM_TO_PLACE_TYPE[room.id];
+        if (placeTypeId && data.checkIn && data.checkOut) {
+          const availabilities = await fetchAvailabilities(placeTypeId, data.checkIn, data.checkOut);
+
+          if (availabilities.length > 0) {
+            const isAvailable = availabilities.every(a => a.availability > 0);
+            room.isAvailable = isAvailable;
+
+            if (isAvailable) {
+              const sum = availabilities.reduce((acc, curr) => acc + curr.rate_price, 0);
+              const avg = Math.round(sum / availabilities.length);
+              room.numericPrice = avg;
+              room.price = `R$ ${avg} diária`;
+            }
+          } else {
+            room.isAvailable = true; // Fallback if no rate data
+          }
+        } else {
+          room.isAvailable = true; // Fallback for rooms without matching ID
+        }
+      }));
+      setRooms(updatedRooms);
+    } catch (e) {
+      console.error('Failed to fetch from Hospedin:', e);
+      setRooms(INITIAL_ROOMS); // Ensure rooms are restored
+    } finally {
+      setIsSearchingAPI(false);
+      setTimeout(() => {
+        const roomsSection = document.getElementById('rooms');
+        if (roomsSection) {
+          const headerOffset = 160;
+          const elementPosition = roomsSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      }, 100);
+    }
   };
 
   const handleClearFilters = () => {
-    setFilters({ 
-      checkIn: '', 
-      checkOut: '', 
-      guests: 2, 
+    setFilters({
+      checkIn: '',
+      checkOut: '',
+      guests: 2,
       maxPrice: 2000,
       features: [],
-      isActive: false 
+      isActive: false
     });
   };
 
@@ -104,16 +141,17 @@ function App() {
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
       <div className="min-h-screen flex flex-col font-sans">
         <Header onOpenPage={navigateTo} currentView={currentView} />
-        
+
         <main className="flex-grow pt-[140px] md:pt-[160px]">
           {currentView === 'home' ? (
             <>
               <Hero />
               <BookingForm onSearch={handleSearch} />
-              <Rooms 
-                rooms={rooms} 
-                filters={filters} 
-                onClearFilters={handleClearFilters} 
+              <Rooms
+                rooms={rooms}
+                filters={filters}
+                onClearFilters={handleClearFilters}
+                isSearchingAPI={isSearchingAPI}
               />
               <About />
               <Location />
@@ -123,20 +161,20 @@ function App() {
               <Testimonials />
             </>
           ) : (
-            <ContentPage 
-              pageId={currentView} 
-              onClose={() => navigateTo('home')} 
+            <ContentPage
+              pageId={currentView}
+              onClose={() => navigateTo('home')}
             />
           )}
         </main>
 
         <Footer onOpenAdmin={() => setIsAdminOpen(true)} onNavigate={navigateTo} />
-        
+
         {isAdminOpen && (
-          <AdminPanel 
-            rooms={rooms} 
-            onUpdateRooms={handleUpdateRooms} 
-            onClose={() => setIsAdminOpen(false)} 
+          <AdminPanel
+            rooms={rooms}
+            onUpdateRooms={handleUpdateRooms}
+            onClose={() => setIsAdminOpen(false)}
           />
         )}
       </div>

@@ -1,0 +1,49 @@
+GET /api/v2/{account_id}/account_transactions - Get account transaction list
+GET /api/v2/{account_id}/account_transactions/{id} - Get account transaction data
+POST /api/v2/authentication/sessions - Authenticate a user
+GET /api/v2/{account_id}/companies - Get company list
+POST /api/v2/{account_id}/companies - Create a company
+GET /api/v2/{account_id}/companies/{id} - Get company data
+PATCH /api/v2/{account_id}/companies/{id} - Update a company
+DELETE /api/v2/{account_id}/companies/{id} - Delete a company
+GET /api/v2/{account_id}/reservations/{reservation_id}/guest_reservations - Get reservation guest list
+POST /api/v2/{account_id}/reservations/{reservation_id}/guest_reservations - Create a reservation guest
+DELETE /api/v2/{account_id}/reservations/{reservation_id}/guest_reservations/{id} - Delete a reservation guest
+GET /api/v2/{account_id}/guests - Get guest list
+POST /api/v2/{account_id}/guests - Create a guest
+GET /api/v2/{account_id}/guests/{id} - Get guest data
+PATCH /api/v2/{account_id}/guests/{id} - Update a guest
+DELETE /api/v2/{account_id}/guests/{id} - Delete a guest
+GET /api/v2/{account_id}/items - Get item list
+GET /api/v2/{account_id}/items/{id} - Get item data
+GET /api/v2/{account_id}/my_account_setting - Get current account setting data
+GET /api/v2/{account_id}/my_account - Get current account data
+GET /api/v2/{account_id}/places - Get place list
+GET /api/v2/{account_id}/places/{id} - Get place data
+GET /api/v2/{account_id}/place_types - Get place type list
+GET /api/v2/{account_id}/place_types/{id} - Get place type data
+GET /api/v2/{account_id}/reservations/{reservation_id}/rate_reservations - Get reservation rates
+POST /api/v2/{account_id}/reservations/{reservation_id}/rate_reservations - Create a reservation rate
+PATCH /api/v2/{account_id}/reservations/{reservation_id}/rate_reservations/{id} - Update a reservation rate
+DELETE /api/v2/{account_id}/reservations/{reservation_id}/rate_reservations/{id} - Delete a reservation rate
+GET /api/v2/{account_id}/place_types/{place_type_id}/rates_and_availabilities - Get availabilities
+GET /api/v2/{account_id}/reservations - Get reservation list
+POST /api/v2/{account_id}/reservations - Create a reservation
+GET /api/v2/{account_id}/reservations/{id} - Get reservation data
+PATCH /api/v2/{account_id}/reservations/{id} - Update a reservation
+GET /api/v2/{account_id}/reservations/{reservation_id}/reservation_transactions - Get reservation transaction list
+POST /api/v2/{account_id}/reservations/{reservation_id}/reservation_transactions - Create a reservation transaction
+GET /api/v2/{account_id}/reservations/{reservation_id}/reservation_transactions/{id} - Get reservation transaction data
+PATCH /api/v2/{account_id}/reservations/{reservation_id}/reservation_transactions/{id} - Update a reservation transaction
+DELETE /api/v2/{account_id}/reservations/{reservation_id}/reservation_transactions/{id} - Delete a reservation transaction
+GET /api/v2/{account_id}/sale_channels - Get sale channel list
+GET /api/v2/{account_id}/sale_channels/{id} - Get sale channel data
+GET /api/v2/{account_id}/reservations/{reservation_id}/sales - Get sale list
+POST /api/v2/{account_id}/reservations/{reservation_id}/sales - Create a sale
+GET /api/v2/{account_id}/reservations/{reservation_id}/sales/{id} - Get sale data
+PATCH /api/v2/{account_id}/reservations/{reservation_id}/sales/{id} - Update a sale
+DELETE /api/v2/{account_id}/reservations/{reservation_id}/sales/{id} - Delete a sale
+GET /api/v2/{account_id}/selling_points - Get selling point list
+GET /api/v2/{account_id}/selling_points/{id} - Get selling point data
+GET /api/v2/{account_id}/transaction_categories - Get transaction category list
+GET /api/v2/{account_id}/transaction_categories/{id} - Get transaction category data

@@ -152,7 +152,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin, onNavigate }) => {
 
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+        <div className="border-t border-white/10 pt-8 text-center flex flex-col items-center text-xs text-gray-500">
+          <div className="flex items-center gap-2 mb-4">
+            <p className="text-gray-400 text-sm">Desenvolvido Por</p>
+            <a href="https://confidesign.com.br" target="_blank" rel="noopener noreferrer">
+              <img src="img/confidesign.png" alt="Confidesign Logo" className="h-8 w-auto object-contain" />
+            </a>
+          </div>
           <div className="flex flex-col md:flex-row items-center gap-4">
             <p>&copy; {new Date().getFullYear()} Pousada Baía do João. {t.footer.rights}</p>
             <button onClick={onOpenAdmin} className="flex items-center gap-1 text-gray-600 hover:text-pousada-gold transition-colors">

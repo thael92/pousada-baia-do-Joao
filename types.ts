@@ -22,10 +22,13 @@ export interface RoomItem {
   id: number;
   name: string;
   image: string;
+  gallery?: string[];
+  description?: string;
   features: string[];
   price: string;
   numericPrice: number;
   capacity: number;
+  isAvailable?: boolean;
 }
 
 export interface TourItem {
